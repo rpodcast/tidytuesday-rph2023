@@ -12,6 +12,9 @@ RUN apt-get update \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get -y install --no-install-recommends python3-setuptools python3-pip
 
+# install python packages
+RUN pip3 install requests requests-oauthlib
+
 # Optional: add shinycannon to the container if load-testing shiny apps with shinyloadtest package
 #RUN curl -L https://github.com/rstudio/shinycannon/releases/download/v1.1.3/shinycannon_1.1.3-dd43f6b_amd64.deb -o /tmp/shinycannon.deb
 #RUN apt-get update \
@@ -25,5 +28,5 @@ RUN apt-get update \
 
 # install R package dependencies
 # add / remove packages from line below (but keep httpgd, renv, languageserver
-RUN install2.r renv httpgd languageserver httpgd httr2 withr dplyr purrr tidyr tibblify
+RUN install2.r renv httpgd languageserver httpgd httr2 withr dplyr purrr tidyr tibblify rtoot lubridate httr
 
